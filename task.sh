@@ -4,7 +4,7 @@
 
 output_file="result.txt"
 
-result=$(ls --help | awk '/-r, --reverse/{flag=1; print; next} flag && /^[[:space:]]*[^-]/{flag=0} flag')
+result=$(man ls | grep -A 2 '^ *-r')
 
 echo -e "$result" > "$output_file"
 
